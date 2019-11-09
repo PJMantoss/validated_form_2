@@ -17,6 +17,7 @@ class Register extends React.Component {
                                 type="text" 
                                 name="name" 
                                 onChange={this.handleChange}
+                                placeholder="Type your name"
                                 noValidate
                             />
                         </div>
@@ -26,6 +27,7 @@ class Register extends React.Component {
                                 type="email" 
                                 name="email" 
                                 onChange={this.handleChange}
+                                placeholder="Enter e-mail"
                                 noValidate
                             />
                         </div>
@@ -35,6 +37,7 @@ class Register extends React.Component {
                                 type="password" 
                                 name="password" 
                                 onChange={this.handleChange}
+                                placeholder="Enter password"
                                 noValidate
                             />
                         </div>
