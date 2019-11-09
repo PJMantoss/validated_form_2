@@ -10,7 +10,7 @@ class Register extends React.Component {
             <div className="wrapper">
                 <div className="form-wrapper">
                     <h2>Register</h2>
-                    <form onSubmit={}>
+                    <form onSubmit={this.handleSubmit}>
                         <div className="fullName">
                             <label htmlFor="fullName">Full Name</label>
                             <input 
@@ -35,11 +35,11 @@ class Register extends React.Component {
                                 onChange={this.handleChange}
                             />
                         </div>
-                        <div>
-                            <small></small>
+                        <div className="info">
+                            <small>Password must be 8 characters long</small>
                         </div>
-                        <div>
-                            <button></button>
+                        <div className="submit">
+                            <button>Create</button>
                         </div>
                     </form>
                 </div>
