@@ -3,7 +3,28 @@ import React from 'react';
 class Register extends React.Component {
     constructor(props){
         super(props);
-        this.state = {}
+        this.state = {
+            fullName: null,
+            email: null,
+            password: null,
+            errors : {
+                fullName: '',
+                email: '',
+                password: '',
+            }
+        };
+
+        this.handleChange = this.handleChange.bind(this);
+    }
+
+    handleChange(e){
+        e.preventDefault();
+        const{ name, value } = e.target;
+        let errors =  this.state.errors;
+
+        switch(name){
+            case "fullName": 
+        }
     }
     render(){
         return (
