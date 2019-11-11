@@ -12,6 +12,14 @@ const validateForm = errors => {
     return valid;
 }
 
+const countErrors = errors => {
+    let count = 0;
+    Object.values(errors).forEach(
+        (val) => val.length > 0 && (count = count+1)
+    )
+
+    return count;
+}
 
 class Register extends React.Component {
     constructor(props){
@@ -20,6 +28,8 @@ class Register extends React.Component {
             fullName: null,
             email: null,
             password: null,
+            formValid: false,
+            errorCount: null,
             errors : {
                 fullName: '',
                 email: '',
@@ -59,16 +69,13 @@ class Register extends React.Component {
 
     handleSubmit(e){
         e.preventDefault();
-        if(validateForm(this.state.errors)){
-            console.info('Valid Form')
-        }else{
-            console.error('Invalid Form')
-        }
+        this.setState({formValid: validateForm(this.state.errors)});
+        this.setState({errorCount: countErrors(this.state.errors)});
     }
 
     render(){
 
-        const {errors} =  this.state;
+        const { errors, formValid} =  this.state;
 
         return (
             <div className="wrapper">
@@ -109,11 +116,14 @@ class Register extends React.Component {
                             {errors.password.length > 0 && <span className='error'>{errors.password}</span>}
                         </div>
                         <div className="info">
-                            <small>Password must be 8 characters long</small>
+                            <small>Password must be eight characters long</small>
                         </div>
                         <div className="submit">
                             <button>Create</button>
                         </div>
+                        {this.state.errorCount !== null ? <p className="form-status">
+                            Form is {formValid ? 'valid ✅' : 'invalid ❌'}
+                        </p> : 'Form not submitted'}
                     </form>
                 </div>
             </div>
